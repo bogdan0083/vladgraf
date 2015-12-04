@@ -1,0 +1,73 @@
+html
+  box-sizing border-box
+
+*, *:before, *:after 
+  box-sizing inherit
+
+body
+  color #0c0c0c
+  font-size 20px
+  background white
+  font-size 20px
+  overflow hidden
+  rb300()
+body[data-hijacking="on"] 
+	overflow: hidden
+  
+body::before
+	content: 'mobile'
+	display: none
+	  
+@media only screen and (min-width: 1050px) {
+  body::before {
+    /* never visible - this is used in jQuery to check the current MQ */
+    content: 'desktop';
+    display none
+  }
+  [data-hijacking="on"] .cd-section {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 1200px
+  }
+  [data-hijacking="on"] .cd-section > div {
+    visibility: visible;
+  }
+   .cd-section:first-of-type > div::before {
+    display: none;
+  }
+  [data-hijacking="on"] .cd-section > div {
+    position: absolute;
+  }
+  [data-animation="rotate"] .cd-section > div {
+    -webkit-transform-origin: center bottom;
+    -moz-transform-origin: center bottom;
+    -ms-transform-origin: center bottom;
+    -o-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+}
+
+.main
+  min-width 1262px
+
+a
+	text-decoration none
+	color black
+	
+// BUTTON STYLES
+
+.button 
+	color white
+	display inline-block
+	text-align center
+	padding 0 15px
+	&_blue
+		background-color #1d7e9f
+		text-shadow 0 1px 0 rgba(6, 7, 9, 0.16)
+		border-radius 5px
+	&_green
+		background-color #25921a

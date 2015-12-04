@@ -1,0 +1,73 @@
+
+// CONTENT
+
+// results
+
+.results
+	height 100vh
+	background: url(../images/results-bg.jpg) no-repeat 100% / cover
+	color white
+	width 100%
+	padding-top 100px
+	z-index 10
+	position relative
+	&__in
+		width 1262px
+		margin 0 auto
+		height 100vh
+	&__heading
+		font-size 48px
+		width 500px
+		margin-bottom 35px
+		line-height 1.1
+	&__text
+		width 650px
+		line-height 1.35
+		font-size 20px
+		margin-bottom 45px
+		span
+			rb400()
+	&__info
+		position absolute
+		top 0
+		sprite($bloat)
+		left 60%
+		padding-left 34px
+		padding-top 34px
+		top 30px
+		&:after
+			content ''
+			position absolute
+			sprite($curve_arrow_right)
+			right 15px
+			bottom -10px
+		&-text
+			font-size 14px
+			line-height 1.2
+			span
+				rb400()
+	&__ref
+		font-family 'aleo bold', sans-serif
+		color white
+		font-size 21px
+		margin-bottom 5px
+		display inline-block
+	&__button
+		height 60px
+		line-height 60px
+		padding 0 63px 0 38px		
+	&__caption
+		position absolute
+		bottom 48px
+		right 0
+		width 352px
+		height 57px
+		background-color rgba(255, 255, 255, 0.8)
+		padding-left 17px
+		padding-top 4px
+		color black
+		&-heading
+			line-height 1.35
+		&-subheading
+			font-size 16px	
+			

@@ -1,0 +1,115 @@
+// HEADER
+
+.header
+	height 100vh
+	min-height 600px
+	width 100%
+	background-color #38a3c8
+	position relative
+	color white
+	overflow hidden
+	&__in
+		width 1262px
+		margin 0 auto
+		height 100vh
+	&__promo
+		padding-top 300px
+		position absolute
+		bottom -3px
+		clearfix()
+	&__image
+		float left	
+	&__promo-right
+		float right
+		padding-left 75px
+	&__heading
+		font-size 45px
+		text-transform uppercase
+		rbc700()
+		width 450px
+		line-height 1.3
+		margin-bottom 30px
+	&__button
+		display inline-block
+		padding 15px 35px 17px
+		font-size 18px
+	&__more 
+		font-size 16px
+		opacity 0.55
+		position absolute
+		bottom 45px
+		right 185px
+		&:before 
+			content ''
+			sprite($curve_arrow_left)
+			position absolute
+			left -50px
+			top 10px		
+// topline
+
+.topline
+	margin 0 auto
+	min-height 55px
+	width 100%
+	padding-top 18px
+	position absolute
+	top 0
+	left 0
+	z-index 1
+	background-color #38a3c8
+	clearfix()
+	&__in
+		width 1262px
+		margin 0 auto
+	&__logo
+		sprite($logo)
+		float left
+		display block
+	&__nav
+		float left
+		margin-left 210px
+		padding-bottom 8px
+		border-bottom 3px solid #1d7e9f
+	&__item
+		display inline-block
+	&__link
+		display block
+		color white		
+		font-size 14px
+		margin-right 30px
+		position relative
+		&:hover
+			top -5px
+			&:before
+				content ''
+				position absolute
+				triangle(13px, 6px, 'top', #1d7e9f)
+				bottom -14px
+				left 50%
+				margin-left -6.5px
+		&_active
+			top -5px
+			&:before
+				content ''
+				position absolute
+				triangle(13px, 6px, 'top', #1d7e9f)
+				bottom -14px
+				left 50%
+				margin-left -6.5px
+		&_last
+			margin-right 0
+	&__contact
+		float right
+		height 35px
+		line-height 35px
+	&__num
+		rbc400()
+		font-size 18px
+		text-transform uppercase
+		display inline-block
+	&__call-us
+		height 30px
+		line-height 30px
+		border-radius 5px
+		font-size 14px
+		margin-left 27px
