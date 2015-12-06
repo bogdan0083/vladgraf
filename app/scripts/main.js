@@ -38,39 +38,55 @@ jQuery(document).ready(function($) {
                 var marketingSection = $('.cd-section .marketing');
                 var designSection = $('.cd-section .design');
                 var programmingSection = $('.cd-section .programming');
+                var exampleSection = $('.cd-section .example-project');
                 var points = $('.points');
                 var pointsListItems = $('.points').find('.points__list-item');
                 var greenBar = $('.points__bar-inner');
-
+                var lastScrollTop = 0;
                 var firstPoint = $('.points__circle-inner:nth-child(1)');
                 var secondPoint = $('.points__circle-inner:nth-child(2)');
                 var thirdPoint = $('.points__circle-inner:nth-child(3)');
                 var forthPoint = $('.points__circle-inner:nth-child(4)');
 
+                var noScrollIsActive;
+
                 initHijacking();
 
                 $(window).on('DOMMouseScroll mousewheel', function(e) {
+                    var st = $('.no-scroll').scrollTop();
 
+
+                    console.log($('.no-scroll').scrollTop());
+                    console.log(lastScrollTop);
+
+                    if (st < lastScrollTop && $('.no-scroll').scrollTop() == 0) {
+                        // downscroll code
+                        console.log('hey');
+                        prevSection();
+                    }
+                    lastScrollTop = st;
+
+                    if ($('.cd-section:last-child').hasClass('visible')) {
+                        return;
+                    }
                     setTimeout(function() {
                         activeSectionIndex = $('.visible').index();
                     }, 500);
 
+
                     scrollHijacking(e);
-
-
-                    console.log(activeSectionIndex);
 
                     if (managementSection.parent().hasClass('visible') && activeSectionIndex == 3) {
 
-                    	pointsListItems.removeClass('points__list-item_active');
+                        pointsListItems.removeClass('points__list-item_active');
 
-						pointsListItems.eq(0).addClass('points__list-item_active');
+                        pointsListItems.eq(0).addClass('points__list-item_active');
 
-						 secondPoint.removeClass('points__circle-inner_visible');
+                        secondPoint.removeClass('points__circle-inner_visible');
 
-                         firstPoint.removeClass('points__circle-inner_accomplished');
+                        firstPoint.removeClass('points__circle-inner_accomplished');
 
-                         firstPoint.addClass('points__circle-inner_visible');
+                        firstPoint.addClass('points__circle-inner_visible');
 
                         setTimeout(function() {
 
@@ -132,9 +148,9 @@ jQuery(document).ready(function($) {
 
                     if (marketingSection.parent().hasClass('visible') && activeSectionIndex == 4) {
 
-                    	pointsListItems.removeClass('points__list-item_active');
+                        pointsListItems.removeClass('points__list-item_active');
 
-						pointsListItems.eq(1).addClass('points__list-item_active');
+                        pointsListItems.eq(1).addClass('points__list-item_active');
 
                         secondPoint.removeClass('points__circle-inner_accomplished');
                         secondPoint.removeClass('points__circle-inner_accomplished_2');
@@ -150,9 +166,9 @@ jQuery(document).ready(function($) {
 
                     if (marketingSection.parent().hasClass('visible') && activeSectionIndex == 2) {
 
-                    	pointsListItems.removeClass('points__list-item_active');
+                        pointsListItems.removeClass('points__list-item_active');
 
-						pointsListItems.eq(1).addClass('points__list-item_active');                    	
+                        pointsListItems.eq(1).addClass('points__list-item_active');
                         points.remove();
 
                         $(document.body).append(points);
@@ -189,9 +205,9 @@ jQuery(document).ready(function($) {
                     if (designSection.parent().hasClass('visible') && activeSectionIndex == 3) {
 
 
-                    	pointsListItems.removeClass('points__list-item_active');
+                        pointsListItems.removeClass('points__list-item_active');
 
-						pointsListItems.eq(2).addClass('points__list-item_active');     
+                        pointsListItems.eq(2).addClass('points__list-item_active');
 
                         greenBar.animate({
                             width: '200px'
@@ -210,9 +226,19 @@ jQuery(document).ready(function($) {
 
                     if (designSection.parent().hasClass('visible') && activeSectionIndex == 5) {
 
-                    	pointsListItems.removeClass('points__list-item_active');
+                        points.remove();
 
-						pointsListItems.eq(2).addClass('points__list-item_active');
+                        $(document.body).append(points);
+
+                        points.addClass('points_fixed');
+
+                        points.css({
+                            'left': $('.management__in').offset().left + 'px'
+                        });
+
+                        pointsListItems.removeClass('points__list-item_active');
+
+                        pointsListItems.eq(2).addClass('points__list-item_active');
                         greenBar.animate({
                             width: '200px'
                         });
@@ -230,22 +256,37 @@ jQuery(document).ready(function($) {
 
                     if (programmingSection.parent().hasClass('visible') && activeSectionIndex == 4) {
 
-                    	pointsListItems.removeClass('points__list-item_active');
+                        pointsListItems.removeClass('points__list-item_active');
 
-						pointsListItems.eq(3).addClass('points__list-item_active');  
+                        pointsListItems.eq(3).addClass('points__list-item_active');
 
                         greenBar.animate({
                             width: '300px'
                         });
 
+                        thirdPoint.removeClass('points__circle-inner_visible');
+                        thirdPoint.addClass('points__circle-inner_accomplished');
+                        thirdPoint.addClass('points__circle-inner_accomplished_3');
+
+                        forthPoint.addClass('points__circle-inner_visible');
+
                         setTimeout(function() {
 
-                            thirdPoint.removeClass('points__circle-inner_visible');
-                            thirdPoint.addClass('points__circle-inner_accomplished');
-                            thirdPoint.addClass('points__circle-inner_accomplished_3');
+                            points.remove();
 
-                            forthPoint.addClass('points__circle-inner_visible');
-                        }, 500);
+                            $('.programming__in').append(points);
+
+                            points.removeClass('points_fixed');
+
+                            points.css({
+                                'left': 0 + 'px'
+                            });
+
+                            //       $(document.body).attr('data-hijacking', 'off');
+
+                            // resetSectionStyle();
+                            // $(window).off();
+                        }, 1000);
 
                     }
                 });
@@ -276,6 +317,9 @@ jQuery(document).ready(function($) {
             prevArrow.off('click', prevSection);
             nextArrow.off('click', nextSection);
             $(document).off('keydown');
+            $(window).animate({
+                scrollTo: '2000px'
+            });
         }
     }
 
@@ -324,7 +368,6 @@ jQuery(document).ready(function($) {
             animationVisible = animationParams[0],
             animationTop = animationParams[1],
             animationBottom = animationParams[2];
-        console.log(visibleSection);
         visibleSection.children('div').velocity(animationVisible, 1, function() {
             visibleSection.css('opacity', 1);
             topSection.css('opacity', 1);
@@ -337,10 +380,6 @@ jQuery(document).ready(function($) {
     function scrollHijacking(event) {
         // on mouse scroll - check if animate section
 
-        if (($('.cd-section').hasClass('visible'))) {
-            $(window).off('DOMMouseScroll mousewheel', scrollHijacking);
-            $(document.body).data('hijacking', 'off');
-        }
         if (event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0) {
             delta--;
             (Math.abs(delta) >= scrollThreshold) && prevSection();

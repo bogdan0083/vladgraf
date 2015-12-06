@@ -94,23 +94,23 @@
 	&_fixed
 		position fixed
 		z-index 100
-		top 50px
+		top 55px
 	&__list
 		position absolute
 		top -8px
 		&-item
-			margin-right 65px
+			margin-right 3.6em
 			display inline-block
-			font-size 10px
+			font-size 14px
 			color #a6a6a6
 			&_active
 				color #178300
 			rbc400()
 			&:first-child
-				margin-right 76px
+				margin-right 58px
 			&:last-child
 				margin-left 4px
-				margin-right 0
+				margin-right -10px
 	&__bar-outer
 		sprite($outer_bar)
 		position absolute
@@ -453,4 +453,66 @@
 		margin-top 22px
 		border-bottom 1px dashed #7d7c7c
 		clear left
-		float left		
+		float left	
+		
+// PROJECT EXAMPLE
+
+.no-scroll
+	width 100%
+	overflow scroll
+	height 100vh	
+.example-project
+	background-color white
+	width 100%
+	padding 120px 0 170px
+	text-align center
+	&__heading 
+		font-size #1a1a1a
+		font-size 48px
+		padding-bottom 70px
+		margin 0 auto 100px
+	&__example-ref
+		font-family 'aleo bold'
+		display block
+		font-size 38px
+		color black
+		margin-bottom 202px
+	&__text
+		width 760px
+		line-height 1.35
+		margin 0 auto 55px
+		&_third
+			width 800px
+	&__concept
+		display block
+		margin 0 auto 150px
+		
+.logo-showcase
+	height 175px	
+	width 952px
+	padding0 58px
+	display table
+	position relative
+	margin 0 auto
+	border 1px solid rgba(6, 7, 9, 0.5)
+	.logo-maerss
+		margin-right 52px
+		display table-cell
+		vertical-align middle
+		width 300px
+	&__action
+		font-size 32px
+		width 535px
+		display table-cell
+		vertical-align middle
+		text-align left
+		line-height 1.2
+	&__button
+		position absolute
+		z-index 2
+		height 55px
+		width 265px
+		font-size 18px	
+		line-height 55px
+		bottom -22px
+		right 50px

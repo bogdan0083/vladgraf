@@ -334,7 +334,6 @@ body {
 	font-size: 20px;
 	background: #fff;
 	font-size: 20px;
-	overflow: hidden;
 	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 }
@@ -383,6 +382,9 @@ body::before {
 a {
 	text-decoration: none;
 	color: #000;
+}
+.parallax {
+	background-color: #000;
 }
 .button {
 	color: #fff;
@@ -729,7 +731,7 @@ a {
 .header__more:before {
 	content: "";
 	background-image: url("../images/sprites/sprites.png");
-	background-position: -233px -552px;
+	background-position: -457px -521px;
 	width: 39px;
 	height: 39px;
 	position: absolute;
@@ -760,7 +762,7 @@ a {
 }
 .topline__logo {
 	background-image: url("../images/sprites/sprites.png");
-	background-position: -194px -522px;
+	background-position: -418px -491px;
 	width: 137px;
 	height: 30px;
 	float: left;
@@ -897,7 +899,7 @@ a {
 	content: "";
 	position: absolute;
 	background-image: url("../images/sprites/sprites.png");
-	background-position: -194px -552px;
+	background-position: -418px -521px;
 	width: 39px;
 	height: 60px;
 	right: 15px;
@@ -951,16 +953,16 @@ a {
 .points_fixed {
 	position: fixed;
 	z-index: 100;
-	top: 50px;
+	top: 55px;
 }
 .points__list {
 	position: absolute;
 	top: -8px;
 }
 .points__list-item {
-	margin-right: 65px;
+	margin-right: 3.6em;
 	display: inline-block;
-	font-size: 10px;
+	font-size: 14px;
 	color: #a6a6a6;
 	font-family: "Roboto Condensed", sans-serif;
 	font-weight: 400;
@@ -969,15 +971,15 @@ a {
 	color: #178300;
 }
 .points__list-item:first-child {
-	margin-right: 76px;
+	margin-right: 58px;
 }
 .points__list-item:last-child {
 	margin-left: 4px;
-	margin-right: 0;
+	margin-right: -10px;
 }
 .points__bar-outer {
 	background-image: url("../images/sprites/sprites.png");
-	background-position: -194px -491px;
+	background-position: -194px -590px;
 	width: 351px;
 	height: 31px;
 	position: absolute;
@@ -1036,7 +1038,7 @@ a {
 .points__circle-inner_accomplished:before {
 	content: "";
 	background-image: url("../images/sprites/sprites.png");
-	background-position: -545px -498px;
+	background-position: -555px -498px;
 	width: 9px;
 	height: 10px;
 	position: absolute;
@@ -1054,7 +1056,7 @@ a {
 .points__circle-inner_visible:before {
 	content: "";
 	background-image: url("../images/sprites/sprites.png");
-	background-position: -545px -491px;
+	background-position: -555px -491px;
 	width: 23px;
 	height: 7px;
 	position: absolute;
@@ -1379,4 +1381,73 @@ a {
 	border-bottom: 1px dashed #7d7c7c;
 	clear: left;
 	float: left;
+}
+.no-scroll {
+	width: 100%;
+	overflow: scroll;
+	height: 100vh;
+}
+.example-project {
+	background-color: #fff;
+	width: 100%;
+	padding: 120px 0 170px;
+	text-align: center;
+}
+.example-project__heading {
+	font-size: #1a1a1a;
+	font-size: 48px;
+	padding-bottom: 70px;
+	margin: 0 auto 100px;
+}
+.example-project__example-ref {
+	font-family: "aleo bold";
+	display: block;
+	font-size: 38px;
+	color: #000;
+	margin-bottom: 202px;
+}
+.example-project__text {
+	width: 760px;
+	line-height: 1.35;
+	margin: 0 auto 55px;
+}
+.example-project__text_third {
+	width: 800px;
+}
+.example-project__concept {
+	display: block;
+	margin: 0 auto 150px;
+}
+.logo-showcase {
+	height: 175px;
+	width: 952px;
+	padding0: 58px;
+	display: table;
+	position: relative;
+	margin: 0 auto;
+	border: 1px solid rgba(6,7,9,0.5);
+}
+.logo-showcase .logo-maerss {
+	margin-right: 52px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 300px;
+}
+.logo-showcase__action {
+	font-size: 32px;
+	width: 535px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	line-height: 1.2;
+}
+.logo-showcase__button {
+	position: absolute;
+	z-index: 2;
+	height: 55px;
+	width: 265px;
+	font-size: 18px;
+	line-height: 55px;
+	bottom: -22px;
+	right: 50px;
 }
