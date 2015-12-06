@@ -1,10 +1,10 @@
 jQuery(document).ready(function($){
-	console.log('ok');
 	//variables
+
 	var hijacking= $('body').data('hijacking'),
 		animationType = $('body').data('animation'),
 		delta = 0,
-        scrollThreshold = 5,
+        scrollThreshold = 2,
         actual = 1,
         animating = false;
     
@@ -72,7 +72,6 @@ jQuery(document).ready(function($){
 	}
 
 	function animateSection() {
-		console.log(sectionsAvailable.length);
 		var scrollTop = $(window).scrollTop(),
 			windowHeight = $(window).height(),
 			windowWidth = $(window).width();
@@ -124,10 +123,41 @@ jQuery(document).ready(function($){
 
 	function scrollHijacking (event) {
 		// on mouse scroll - check if animate section
-		console.log('scrolled');
-        if (event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0) { 
+		var managementSection = $('.cd-section .management');
+		var marketingSection = $('.cd-section .marketing');
+		var points = managementSection.find('.points');
+
+		if (managementSection.parent().hasClass('visible')) {
+
+			managementSection.find('.points__circle-inner').removeClass('.points__circle-inner_visible');
+
+			points.addClass('points_fixed');
+
+			var firstPoint = managementSection.find('.points__circle-inner:first-child');
+
+			setTimeout(function() {
+
+				firstPoint.addClass('points__circle-inner_visible');
+
+
+			}, 500);
+		}
+		if (managementSection.parent().hasClass('visible')) {
+
+			var firstPoint = managementSection.find('.points__circle-inner:first-child');
+
+			setTimeout(function() {
+				firstPoint.addClass('points__circle-inner_visible');
+			}, 500);
+		}
+		if (!($('.cd-section').hasClass('visible'))) {
+			$(window).off('DOMMouseScroll mousewheel', scrollHijacking);
+			$(document.body).data('hijacking', 'off');
+		}
+        if (event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0) {
             delta--;
             ( Math.abs(delta) >= scrollThreshold) && prevSection();
+
         } else {
             delta++;
             (delta >= scrollThreshold) && nextSection();
@@ -166,8 +196,6 @@ jQuery(document).ready(function($){
 
         var visibleSection = sectionsAvailable.filter('.visible'),
     		middleScroll = ( hijacking == 'off' && $(window).scrollTop() != visibleSection.offset().top) ? true : false;
-
-		console.log(visibleSection.is(":last-of-type"));
 
     	var animationParams = selectAnimation(animationType, middleScroll, 'next');
     	unbindScroll(visibleSection.next('.cd-section'), animationParams[3]);
