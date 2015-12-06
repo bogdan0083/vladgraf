@@ -33,9 +33,22 @@ jQuery(document).ready(function($) {
         if (MQ == 'desktop' && bool) {
             //bind the animation to the window scroll event, arrows click and keyboard
             if (hijacking == 'on') {
-
                 var activeSectionIndex;
+                var managementSection = $('.cd-section .management');
+                var marketingSection = $('.cd-section .marketing');
+                var designSection = $('.cd-section .design');
+                var programmingSection = $('.cd-section .programming');
+                var points = $('.points');
+                var pointsListItems = $('.points').find('.points__list-item');
+                var greenBar = $('.points__bar-inner');
+
+                var firstPoint = $('.points__circle-inner:nth-child(1)');
+                var secondPoint = $('.points__circle-inner:nth-child(2)');
+                var thirdPoint = $('.points__circle-inner:nth-child(3)');
+                var forthPoint = $('.points__circle-inner:nth-child(4)');
+
                 initHijacking();
+
                 $(window).on('DOMMouseScroll mousewheel', function(e) {
 
                     setTimeout(function() {
@@ -44,22 +57,20 @@ jQuery(document).ready(function($) {
 
                     scrollHijacking(e);
 
-                    var managementSection = $('.cd-section .management');
-                    var marketingSection = $('.cd-section .marketing');
-                    var designSection = $('.cd-section .design');
-                    var programmingSection = $('.cd-section .programming');
-                    var points = $('.points');
-                    var greenBar = $('.points__bar-inner');
-
-                    var firstPoint = $('.points__circle-inner:nth-child(1)');
-                    var secondPoint = $('.points__circle-inner:nth-child(2)');
-                    var thirdPoint = $('.points__circle-inner:nth-child(3)');
-                    var forthPoint = $('.points__circle-inner:nth-child(4)');
 
                     console.log(activeSectionIndex);
 
                     if (managementSection.parent().hasClass('visible') && activeSectionIndex == 3) {
 
+                    	pointsListItems.removeClass('points__list-item_active');
+
+						pointsListItems.eq(0).addClass('points__list-item_active');
+
+						 secondPoint.removeClass('points__circle-inner_visible');
+
+                         firstPoint.removeClass('points__circle-inner_accomplished');
+
+                         firstPoint.addClass('points__circle-inner_visible');
 
                         setTimeout(function() {
 
@@ -67,11 +78,6 @@ jQuery(document).ready(function($) {
 
                             $('.management__in').append(points);
 
-                            secondPoint.removeClass('points__circle-inner_visible');
-
-                            firstPoint.removeClass('points__circle-inner_accomplished');
-
-                            firstPoint.addClass('points__circle-inner_visible');
                             points.removeClass('points_fixed');
 
                             points.css({
@@ -126,6 +132,10 @@ jQuery(document).ready(function($) {
 
                     if (marketingSection.parent().hasClass('visible') && activeSectionIndex == 4) {
 
+                    	pointsListItems.removeClass('points__list-item_active');
+
+						pointsListItems.eq(1).addClass('points__list-item_active');
+
                         secondPoint.removeClass('points__circle-inner_accomplished');
                         secondPoint.removeClass('points__circle-inner_accomplished_2');
 
@@ -140,6 +150,9 @@ jQuery(document).ready(function($) {
 
                     if (marketingSection.parent().hasClass('visible') && activeSectionIndex == 2) {
 
+                    	pointsListItems.removeClass('points__list-item_active');
+
+						pointsListItems.eq(1).addClass('points__list-item_active');                    	
                         points.remove();
 
                         $(document.body).append(points);
@@ -175,6 +188,11 @@ jQuery(document).ready(function($) {
 
                     if (designSection.parent().hasClass('visible') && activeSectionIndex == 3) {
 
+
+                    	pointsListItems.removeClass('points__list-item_active');
+
+						pointsListItems.eq(2).addClass('points__list-item_active');     
+
                         greenBar.animate({
                             width: '200px'
                         });
@@ -190,8 +208,11 @@ jQuery(document).ready(function($) {
 
                     }
 
-                     if (designSection.parent().hasClass('visible') && activeSectionIndex == 5) {
+                    if (designSection.parent().hasClass('visible') && activeSectionIndex == 5) {
 
+                    	pointsListItems.removeClass('points__list-item_active');
+
+						pointsListItems.eq(2).addClass('points__list-item_active');
                         greenBar.animate({
                             width: '200px'
                         });
@@ -200,7 +221,7 @@ jQuery(document).ready(function($) {
 
                             thirdPoint.addClass('points__circle-inner_visible');
                             thirdPoint.removeClass('points__circle-inner_accomplished');
-                            thirdPoint.removeClass('points__circle-inner_accomplished_2');
+                            thirdPoint.removeClass('points__circle-inner_accomplished_3');
 
                             forthPoint.removeClass('points__circle-inner_visible');
                         }, 500);
@@ -209,6 +230,9 @@ jQuery(document).ready(function($) {
 
                     if (programmingSection.parent().hasClass('visible') && activeSectionIndex == 4) {
 
+                    	pointsListItems.removeClass('points__list-item_active');
+
+						pointsListItems.eq(3).addClass('points__list-item_active');  
 
                         greenBar.animate({
                             width: '300px'

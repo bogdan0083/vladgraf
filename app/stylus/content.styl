@@ -85,7 +85,7 @@
 // points
 
 .points
-	width auto
+	width 351px
 	height 60px
 	position absolute
 	top -140px
@@ -95,9 +95,26 @@
 		position fixed
 		z-index 100
 		top 50px
+	&__list
+		position absolute
+		top -8px
+		&-item
+			margin-right 65px
+			display inline-block
+			font-size 10px
+			color #a6a6a6
+			&_active
+				color #178300
+			rbc400()
+			&:first-child
+				margin-right 76px
+			&:last-child
+				margin-left 4px
+				margin-right 0
 	&__bar-outer
 		sprite($outer_bar)
-		position relative
+		position absolute
+		bottom 0
 	&__bar-inner
 		background-color #1c9f00
 		background-image linear-gradient(to top, rgba(255, 255, 255, 0.01) 0%, transparent 0%, rgba(255, 255, 255, 0.01) 100%)
@@ -164,7 +181,7 @@
 				margin-top -(@height / 2)
 				margin-left  -(@width / 2)
 		&:nth-child(2)
-			left 105px
+			left 110px
 		&:nth-child(3)
 			left 105 * 2 px
 		&:nth-child(4)
