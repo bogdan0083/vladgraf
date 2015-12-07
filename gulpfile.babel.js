@@ -185,6 +185,7 @@ gulp.task('sprites', () => {
   var spriteData = gulp.src('app/images/*.png').pipe(spritesmith({
    imgName: 'sprites.png',
    cssName: 'sprites.styl',
+   padding: 10,
    imgPath:'../images/sprites/sprites.png'
  }));
 
