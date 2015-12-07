@@ -1714,7 +1714,7 @@ a {
 .points_blue__list-item:nth-child(3) {
 	margin-right: 68px;
 }
-.points_blue__list-item:last-child {
+.points_blue__list-item_last {
 	margin-right: -20px;
 }
 .points_blue__bar-outer {
