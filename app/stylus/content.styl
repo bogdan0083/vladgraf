@@ -635,3 +635,225 @@
 		right 50px
 		bottom -30px
 		font-size 18px		
+		
+// PRICE
+
+.price
+	padding-top 142px
+	padding-bottom 100px
+	text-align center
+	color #3d3d3d
+	&__in
+		width 840px
+		margin 0 auto
+	&__heading
+		font-size 48px
+		width 700px
+		line-height 1.2
+		margin 0 auto 110px
+	&__block
+		padding-top 165px
+		overflow hidden
+		position relative
+		background-color #f7fdff
+		border 1px solid rgba(150, 188, 201, 0.2)
+		margin 0 auto 0
+		width 837px
+		height 457px
+		text-align center
+	&__step
+		opacity 0
+		transition transform 0.7s, opacity 0.7s
+		transform scale(2)
+		height 0
+		position relative
+		&_visible
+			height 400px
+			opacity 1
+			transform scale(1)
+		&_2
+			.price__step-heading
+				margin-bottom 40px
+			.price__step-desc
+				margin-bottom 40px
+		&_3
+			.price__step-heading
+				margin-bottom 40px
+			.price__step-desc
+				margin-bottom 40px	
+		&_no
+			.price__step-desc
+				margin-bottom 10px
+			.price__step-copyright
+				rbi300()
+				margin-bottom 35px
+		&-heading 
+			color #3d3d3d
+			font-size 34px
+			rbc400()
+			margin-bottom 45px
+		&-desc
+			width 460px
+			margin 0 auto 64px
+			line-height 1.2
+	&__back
+		color #c3c3c3
+		font-size 12px
+		position absolute
+		top -40px
+		left 50%
+		margin-left -73px
+		text-align center
+		display inline
+		padding-bottom 3px
+		border-bottom 1px dashed #c3c3c3
+	&__input
+			height 40px
+			border-radius 10px
+			margin-right 8px
+			outline none
+			border 1px solid #b4b8b9
+			padding 0 15px
+			rbi300()
+			font-size 16px	
+	&__button
+		&_no
+			margin-right 7px
+			background-color #e7e9ea
+			font-size 16px
+			color #c8c8c8
+			min-width 200px	
+			line-height 40px
+			height 40px
+			display inline-block
+			border-radius 10px
+		&_yes
+			width 200px
+			height 40px
+			background-color #1e9fcb
+			background-image linear-gradient(to top, rgba(255, 255, 255, 0.01) 0%, transparent 0%, rgba(255, 255, 255, 0.3) 100%)
+			border 1px solid #479546
+			font-size 17px
+			color white
+			line-height 39px
+			border-radius 10px
+			display inline-block
+			rbc400()
+			box-shadow 0 1px 1px rgba(0, 0, 0, 0.54), inset 0 2px 0 rgba(255, 255, 255, 0.03), inset 0 0 3px rgba(255, 255, 255, 0.35)
+
+// points_blue
+
+.points_blue			
+	width 350px
+	height 60px
+	position absolute
+	top 36px	
+	left 50%
+	margin-left -(@width / 2)
+	transition transform 0.3s
+	&__list
+		position absolute
+		top -8px
+		left 2px
+		width 100%
+		clearfix()
+		&-item
+			margin-right 73px
+			float left
+			font-size 14px
+			color #c0c0c0
+			text-transform uppercase
+			&_active
+				color #34b5e1
+			rbc400()
+			&:nth-child(2)
+				margin-right 66px
+			&:nth-child(3)
+				margin-right 68px
+			&:last-child
+				margin-right -20px
+	&__bar-outer
+		sprite($outer_bar_blue)
+		position absolute
+		bottom 0
+	&__bar-inner
+		background-color #32a1c6
+		border-radius 10px
+		height 8px
+		width 100px
+		top 50%
+		margin-top -(@height / 2) - 1px
+		left 22px
+		position absolute
+		background-image: -moz-linear-gradient( 90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%, rgba(255,255,255, 0.3) 100%);
+		background-image: -webkit-linear-gradient( 90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%, rgba(255,255,255, 0.3) 100%);
+		background-image: -ms-linear-gradient( 90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%, rgba(255,255,255, 0.3) 100%);
+		box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.03);
+		
+		width 0
+		transition all 0.3s
+		&_visible
+			display block
+	&__circle-inner
+		width 38px
+		height 38px
+		border-radius 50%
+		background-color  #1c9dc9
+		background-image: -moz-linear-gradient( 90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%, rgba(255,255,255, 0.4) 100%);
+		background-image: -webkit-linear-gradient( 90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%, rgba(255,255,255, 0.4) 100%);
+		background-image: -ms-linear-gradient( 90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%, rgba(255,255,255, 0.4) 100%);
+		box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4),inset 0px 2px 0px 0px rgba(255, 255, 255, 0.03);
+		position absolute
+		top 50%
+		margin-top -(@height / 2)px
+		left 0
+		transition all 0.4s
+		transform scale(0)
+		-webkit-transform scale(0) /* Для Safari, Chrome, iOS */
+		z-index 5
+		&_accomplished
+			width 21px
+			height 21px
+			transform scale(1)
+			-webkit-transform scale(1)
+			left 5px
+			margin-top -(@height / 2)
+			transition all 0.4s
+			&_2
+				left 118px !important
+			&_3
+				left 218px !important	
+			&:before
+				content ''
+				sprite($accomplished)
+				position absolute
+				top 50%
+				left 50%
+				margin-top -(@height / 2) - 1px
+				margin-left  -(@width / 2)
+		&_visible
+			width 38px
+			height 38px
+			transform scale(1)
+			-webkit-transform scale(1) /* Для Safari, Chrome, iOS */
+			&:last-child:before
+				sprite($accomplished);
+			&:before
+				content ''
+				sprite($circle_dots)
+				position absolute
+				top 50%
+				left 50%
+				margin-top -(@height / 2) - 1px
+				margin-left  -(@width / 2)
+		&:nth-child(2)
+			left 110px
+		&:nth-child(3)
+			left 105 * 2 px
+		&:nth-child(4)
+			right 0px
+			left auto
+			&:before
+				sprite($accomplished)
+				margin-left -(@width / 2)
+				margin-top -(@height / 2) - 2px

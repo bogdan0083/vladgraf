@@ -24,6 +24,8 @@ jQuery(document).ready(function($) {
     var MQ = deviceType(),
         bindToggle = false;
     bindEvents(MQ, true);
+
+    // TOPLINE MENU SCROLL TO
     $('.topline').on('click', '.topline__link', function(e) {
         nextSection(e, $(this));
         if ($('.topline__link').index($(this)) == 1) {
@@ -32,7 +34,7 @@ jQuery(document).ready(function($) {
                 $('.no-scroll').animate({
                     scrollTop: $('.no-scroll .portfolio').offset().top
                 });
-            }, 1000);
+            }, 800);
         }
 
         var points = $('.points');
@@ -51,6 +53,150 @@ jQuery(document).ready(function($) {
             width: '300px'
         });
     });
+
+    // STEPS
+
+    // STEP NO
+    (function() {
+
+        var stepFirst = $('.price__step_1');
+        var stepSecond = $('.price__step_2');
+        var stepThird = $('.price__step_3');
+        var stepForth = $('.price__step_4');
+
+        var stepNo = $('.price__step_no');
+        var allSteps = $('.price__step');
+        var firstBluePoint = $('.points_blue__circle-inner:nth-child(1)');
+        var secondBluePoint = $('.points_blue__circle-inner:nth-child(2)');
+        var thirdBluePoint = $('.points_blue__circle-inner:nth-child(3)');
+        var forthBluePoint = $('.points_blue__circle-inner:nth-child(4)');
+
+        var blueBar = $('.points_blue__bar-inner');
+
+        $('.price__button_big-no').on('click', function() {
+            stepFirst.removeClass('price__step_visible');
+            stepNo.addClass('price__step_visible');
+        });
+        $('.price__back').on('click', function() {
+            allSteps.removeClass('price__step_visible');
+            stepFirst.addClass('price__step_visible');
+
+            $('.points_blue__circle-inner').removeClass('points_blue__circle-inner_visible');
+            $('.points_blue__circle-inner').removeClass('points_blue__circle-inner_accomplished');
+            $('.points_blue__circle-inner').removeClass('points_blue__circle-inner_accomplished_2');
+            $('.points_blue__circle-inner').removeClass('points_blue__circle-inner_accomplished_3');
+
+
+            $('.points_blue__circle-inner:first-child').addClass('points_blue__circle-inner_visible');
+
+            $('.points_blue__list-item').removeClass('points_blue__list-item_active');
+
+            $('.points_blue__list-item:nth-child(1)').addClass('points_blue__list-item_active');
+
+            blueBar.animate({
+                'width': '0'
+            });
+        });
+
+        $('.price__button_1_yes').on('click', function() {
+            stepFirst.removeClass('price__step_visible');
+            stepSecond.addClass('price__step_visible');
+
+            firstBluePoint.removeClass('points_blue__circle-inner_visible');
+            firstBluePoint.addClass('points_blue__circle-inner_accomplished');
+
+            secondBluePoint.addClass('points_blue__circle-inner_visible');
+
+            $('.points_blue__list-item').removeClass('points_blue__list-item_active');
+
+            $('.points_blue__list-item:nth-child(2)').addClass('points_blue__list-item_active');
+            blueBar.animate({
+                'width': '100'
+            });
+
+        });
+
+        $('.price__button_2_yes').on('click', function() {
+            stepSecond.removeClass('price__step_visible');
+            stepThird.addClass('price__step_visible');
+
+            secondBluePoint.removeClass('points_blue__circle-inner_visible');
+
+            secondBluePoint.addClass('points_blue__circle-inner_accomplished');
+            secondBluePoint.addClass('points_blue__circle-inner_accomplished_2');
+
+            thirdBluePoint.addClass('points_blue__circle-inner_visible');
+
+            $('.points_blue__list-item').removeClass('points_blue__list-item_active');
+            $('.points_blue__list-item:nth-child(3)').addClass('points_blue__list-item_active');
+
+            blueBar.animate({
+                'width': '200'
+            });
+
+        });
+
+        $('.price__button_2_no').on('click', function() {
+            stepSecond.removeClass('price__step_visible');
+            stepThird.addClass('price__step_visible');
+
+            secondBluePoint.removeClass('points_blue__circle-inner_visible');
+
+            secondBluePoint.addClass('points_blue__circle-inner_accomplished');
+            secondBluePoint.addClass('points_blue__circle-inner_accomplished_2');
+
+            thirdBluePoint.addClass('points_blue__circle-inner_visible');
+            $('.points_blue__list-item').removeClass('points_blue__list-item_active');
+
+            $('.points_blue__list-item:nth-child(3)').addClass('points_blue__list-item_active');
+            blueBar.animate({
+                'width': '200'
+            });
+
+        });
+
+        $('.price__button_3_yes').on('click', function() {
+            stepThird.removeClass('price__step_visible');
+            stepForth.addClass('price__step_visible');
+
+            thirdBluePoint.removeClass('points_blue__circle-inner_visible');
+
+            thirdBluePoint.addClass('points_blue__circle-inner_accomplished');
+            thirdBluePoint.addClass('points_blue__circle-inner_accomplished_3');
+
+            forthBluePoint.addClass('points_blue__circle-inner_visible');
+
+            $('.points_blue__list-item').removeClass('points_blue__list-item_active');
+            $('.points_blue__list-item:nth-child(4)').addClass('points_blue__list-item_active');
+
+            blueBar.animate({
+                'width': '300'
+            });
+
+        });
+
+
+        $('.price__button_3_no').on('click', function() {
+            stepThird.removeClass('price__step_visible');
+            stepForth.addClass('price__step_visible');
+
+            thirdBluePoint.removeClass('points_blue__circle-inner_visible');
+
+            thirdBluePoint.addClass('points_blue__circle-inner_accomplished');
+            thirdBluePoint.addClass('points_blue__circle-inner_accomplished_3');
+
+            forthBluePoint.addClass('points_blue__circle-inner_visible');
+
+            $('.points_blue__list-item').removeClass('points_blue__list-item_active');
+            $('.points_blue__list-item:nth-child(4)').addClass('points_blue__list-item_active');
+
+            blueBar.animate({
+                'width': '300'
+            });
+
+        });
+
+    })();
     $(window).on('resize', function() {
         MQ = deviceType();
         console.log(MQ);
@@ -462,10 +608,10 @@ jQuery(document).ready(function($) {
                 animating = true;
                 visibleSection.removeClass('visible').children('div').velocity(animationParams[1], animationParams[3], animationParams[4])
                     .end();
-                    $('.cd-section:nth-child(7)').addClass('visible').children('div').velocity(animationParams[0], animationParams[3], animationParams[4], function() {
-                        animating = false;
-                        if (hijacking == 'off') $(window).on('scroll', scrollAnimation);
-                    });
+                $('.cd-section:nth-child(7)').addClass('visible').children('div').velocity(animationParams[0], animationParams[3], animationParams[4], function() {
+                    animating = false;
+                    if (hijacking == 'off') $(window).on('scroll', scrollAnimation);
+                });
 
                 actual = actual + 1;
                 return;
