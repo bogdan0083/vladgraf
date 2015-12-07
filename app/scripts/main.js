@@ -1,6 +1,11 @@
 jQuery(document).ready(function($) {
     //variables
-
+    $('.portfolio__website').fancybox({
+        fitToView: false,
+        width: '95%',
+        maxWidth: 1200,
+        scrolling: 'yes',
+    });
     var hijacking = $('body').data('hijacking'),
         animationType = $('body').data('animation'),
         delta = 0,
@@ -19,7 +24,33 @@ jQuery(document).ready(function($) {
     var MQ = deviceType(),
         bindToggle = false;
     bindEvents(MQ, true);
+    $('.topline').on('click', '.topline__link', function(e) {
+        nextSection(e, $(this));
+        if ($('.topline__link').index($(this)) == 1) {
+            nextSection(e, $(this));
+            setTimeout(function() {
+                $('.no-scroll').animate({
+                    scrollTop: $('.no-scroll .portfolio').offset().top
+                });
+            }, 1000);
+        }
 
+        var points = $('.points');
+
+        $('.programming__in').append(points);
+
+        $('.points__circle-inner').addClass('points__circle-inner_accomplished');
+
+        $('.points__circle-inner:nth-child(2)').addClass('points__circle-inner_accomplished_2');
+
+        $('.points__circle-inner:nth-child(3)').addClass('points__circle-inner_accomplished_3');
+
+        $('.points__circle-inner:nth-child(4)').addClass('points__circle-inner_visible');
+        $('.points__circle-inner:nth-child(4)').removeClass('points__circle-inner_accomplished');
+        $('.points__bar-inner').css({
+            width: '300px'
+        });
+    });
     $(window).on('resize', function() {
         MQ = deviceType();
         console.log(MQ);
@@ -419,7 +450,6 @@ jQuery(document).ready(function($) {
     function nextSection(event) {
         //go to next section
         typeof event !== 'undefined' && event.preventDefault();
-
         var visibleSection = sectionsAvailable.filter('.visible'),
             middleScroll = (hijacking == 'off' && $(window).scrollTop() != visibleSection.offset().top) ? true : false;
 
@@ -427,7 +457,19 @@ jQuery(document).ready(function($) {
         unbindScroll(visibleSection.next('.cd-section'), animationParams[3]);
 
         if (!animating && !visibleSection.is(":last-child")) {
-            console.log('go go');
+            if (arguments.length == 2) {
+                console.log('two');
+                animating = true;
+                visibleSection.removeClass('visible').children('div').velocity(animationParams[1], animationParams[3], animationParams[4])
+                    .end();
+                    $('.cd-section:nth-child(7)').addClass('visible').children('div').velocity(animationParams[0], animationParams[3], animationParams[4], function() {
+                        animating = false;
+                        if (hijacking == 'off') $(window).on('scroll', scrollAnimation);
+                    });
+
+                actual = actual + 1;
+                return;
+            }
             animating = true;
             visibleSection.removeClass('visible').children('div').velocity(animationParams[1], animationParams[3], animationParams[4])
                 .end().next('.cd-section').addClass('visible').children('div').velocity(animationParams[0], animationParams[3], animationParams[4], function() {
