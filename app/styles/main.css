@@ -1682,8 +1682,10 @@ a {
 .points_blue__list {
 	position: absolute;
 	top: -8px;
-	left: 2px;
+	left: 0;
 	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 .points_blue__list:before, .points_blue__list:after {
 	content: "";
