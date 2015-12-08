@@ -681,6 +681,9 @@
 				margin-bottom 40px
 			.price__step-desc
 				margin-bottom 40px	
+		&_4
+			.price__step-desc
+				width 500px		
 		&_no
 			.price__step-desc
 				margin-bottom 10px
@@ -840,8 +843,6 @@
 			height 38px
 			transform scale(1)
 			-webkit-transform scale(1) /* Для Safari, Chrome, iOS */
-			&:last-child:before
-				sprite($accomplished);
 			&:before
 				content ''
 				sprite($circle_dots)
@@ -850,6 +851,11 @@
 				left 50%
 				margin-top -(@height / 2) - 1px
 				margin-left  -(@width / 2)
+			&_accomplished:before
+				sprite($accomplished)
+				margin-left -(@width / 2)
+				margin-top -(@height / 2) - 2px
+					
 		&:nth-child(2)
 			left 110px
 		&:nth-child(3)
@@ -857,7 +863,115 @@
 		&:nth-child(4)
 			right 0px
 			left auto
-			&:before
-				sprite($accomplished)
-				margin-left -(@width / 2)
-				margin-top -(@height / 2) - 2px
+			
+// TESTIMONIALS
+
+.testimonials
+	padding 110px 0 120px
+	background-color #eaeef7
+	&__heading
+		color #1a1a1a
+		font-size 48px
+		margin 0 auto 48px
+		width 340px
+	&__group
+		width 920px
+		margin 0 auto 120px
+		clearfix()
+		&-desc
+			width 50%
+			height 250px
+			background-color #3e92af
+			float left
+			color white
+			padding 33px 45px 33px 33px
+		&-heading
+			font-size 24px
+			margin-bottom 25px
+			rbc400()
+	&__text
+		font-size 16px
+		margin-bottom 25px
+	&__overlay
+		width 100%
+		height 100%
+		position absolute
+		left 0
+		top 0
+		background-color rgba(#eaeef7, 0.7)	
+		&:before
+			content ''
+			sprite($video_play)
+			position absolute
+			left 50%
+			top 50%
+			margin-top -(@height / 2)
+			margin-left -(@width / 2)
+			display block
+	&__video
+		width 50%
+		height 250px
+		padding 10px
+		overflow hidden
+		float left
+		display block
+		position relative
+		padding-bottom 0
+		&_first
+			padding 0
+		img
+			display block
+			width 100%
+			height 100%
+		&:nth-child(1n)
+			padding-left 0
+			padding-right 10px
+		&:nth-child(2+2n)
+			padding-left 0		
+		&:first-child
+			padding 0
+	&__direct
+		width 978px
+		height 175px
+		margin 0 auto
+		border 1px solid #606060
+		padding 25px 50px
+		position relative
+		clearfix()
+		&-icon
+			sprite($direct)
+			display block
+			float left
+			margin-right 75px
+		&-heading
+			float left
+			font-size 35px
+			color #474747
+			line-height 1.2
+			margin-top 10px
+			span
+				color #eb1212
+		&-button
+			width 320px
+			height 55px
+			background-color #177392
+			color #f5e2d8
+			font-size 18px
+			line-height 54px
+			right 25px
+			bottom -25px
+			position absolute
+
+.partners
+	text-align center
+	padding 75px 0 95px
+	&__heading
+		font-size 48px
+		color #1a1a1a
+		width 510px
+		margin 0 auto 95px
+		line-height 1.2
+	&__logos
+		sprite($partners)
+		margin 0 auto
+			

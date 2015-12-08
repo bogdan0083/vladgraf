@@ -63,7 +63,7 @@ jQuery(document).ready(function($) {
         var stepSecond = $('.price__step_2');
         var stepThird = $('.price__step_3');
         var stepForth = $('.price__step_4');
-
+        var stepOk = $('.price__step_ok');
         var stepNo = $('.price__step_no');
         var allSteps = $('.price__step');
         var firstBluePoint = $('.points_blue__circle-inner:nth-child(1)');
@@ -73,11 +73,30 @@ jQuery(document).ready(function($) {
 
         var blueBar = $('.points_blue__bar-inner');
 
+        var priceNum = 0;
+
+        $('.testimonials').on('click', '.testimonials__video', function(e) {
+            $(this).children().remove();
+
+            var iframe = document.createElement('iframe');
+
+            iframe.src = $(this).data('href');
+            iframe.frameBorder = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            $(this).append(iframe);
+
+            e.preventDefault();
+        });
+
         $('.price__button_big-no').on('click', function() {
             stepFirst.removeClass('price__step_visible');
             stepNo.addClass('price__step_visible');
         });
         $('.price__back').on('click', function() {
+
+            priceNum = 0;
+
             allSteps.removeClass('price__step_visible');
             stepFirst.addClass('price__step_visible');
 
@@ -134,6 +153,8 @@ jQuery(document).ready(function($) {
                 'width': '200'
             });
 
+            priceNum += 100000;
+            console.log(priceNum);
         });
 
         $('.price__button_2_no').on('click', function() {
@@ -153,6 +174,8 @@ jQuery(document).ready(function($) {
                 'width': '200'
             });
 
+            priceNum += 40000;
+            console.log(priceNum);
         });
 
         $('.price__button_3_yes').on('click', function() {
@@ -173,6 +196,8 @@ jQuery(document).ready(function($) {
                 'width': '300'
             });
 
+            priceNum += 50000;
+            console.log(priceNum);
         });
 
 
@@ -196,6 +221,24 @@ jQuery(document).ready(function($) {
 
         });
 
+        $('.price__button_4_yes').on('click', function() {
+            stepForth.removeClass('price__step_visible');
+            stepOk.addClass('price__step_visible');
+            forthBluePoint.addClass('points_blue__circle-inner_visible_accomplished');
+
+            priceNum *= 0.3;
+
+            $('.price__step_ok .price__step-heading').text(numberWithSpaces(priceNum) + 'р.');
+            console.log(priceNum);
+        });
+
+        $('.price__button_4_no').on('click', function() {
+            stepForth.removeClass('price__step_visible');
+            stepOk.addClass('price__step_visible');
+            forthBluePoint.addClass('points_blue__circle-inner_visible_accomplished');
+            $('.price__step_ok .price__step-heading').text(numberWithSpaces(priceNum) + 'р.');
+            console.log(priceNum);
+        });
     })();
     $(window).on('resize', function() {
         MQ = deviceType();
@@ -459,10 +502,6 @@ jQuery(document).ready(function($) {
                                 'left': 0 + 'px'
                             });
 
-                            //       $(document.body).attr('data-hijacking', 'off');
-
-                            // resetSectionStyle();
-                            // $(window).off();
                         }, 1000);
 
                     }
@@ -498,6 +537,10 @@ jQuery(document).ready(function($) {
                 scrollTo: '2000px'
             });
         }
+    }
+
+    function numberWithSpaces(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
     function scrollAnimation() {
