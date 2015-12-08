@@ -34,9 +34,28 @@ jQuery(document).ready(function($) {
                 $('.no-scroll').animate({
                     scrollTop: $('.no-scroll .portfolio').offset().top
                 });
-            }, 800);
+                return;
+            }, 1000);
+        }
+        if ($('.topline__link').index($(this)) == 2) {
+            nextSection(e, $(this));
+            setTimeout(function() {
+                $('.no-scroll').animate({
+                    scrollTop: $('.no-scroll .price').offset().top
+                });
+                 return;
+            }, 1000);
         }
 
+        if ($('.topline__link').index($(this)) == 3) {
+            nextSection(e, $(this));
+            setTimeout(function() {
+                $('.no-scroll').animate({
+                    scrollTop: $('.no-scroll .footer').offset().top
+                });
+                 return;
+            }, 1000);
+        }
         var points = $('.points');
 
         $('.programming__in').append(points);
