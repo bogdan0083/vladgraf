@@ -246,7 +246,7 @@ jQuery(document).ready(function($) {
             stepOk.addClass('price__step_visible');
             forthBluePoint.addClass('points_blue__circle-inner_visible_accomplished');
 
-            priceNum *= 0.3;
+            priceNum = priceNum - (priceNum * 0.3);
 
             $('.price__step_ok .price__step-heading').text(numberWithSpaces(priceNum) + 'р.');
             console.log(priceNum);
