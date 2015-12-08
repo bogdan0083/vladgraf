@@ -56,12 +56,13 @@ jQuery(document).ready(function($) {
                  return;
             }, 1000);
         }
+
         var points = $('.points');
 
         $('.programming__in').append(points);
 
         $('.points__circle-inner').addClass('points__circle-inner_accomplished');
-
+        $('.points__circle-inner:nth-child(1)').removeClass('points__circle-inner_visible');
         $('.points__circle-inner:nth-child(2)').addClass('points__circle-inner_accomplished_2');
 
         $('.points__circle-inner:nth-child(3)').addClass('points__circle-inner_accomplished_3');
