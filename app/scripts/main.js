@@ -25,6 +25,22 @@ jQuery(document).ready(function($) {
         bindToggle = false;
     bindEvents(MQ, true);
 
+    // FORM POPUP
+
+    $(document.body).on('click', '#showpopup', function(e) {
+
+        e.preventDefault();
+
+        $('.popup').addClass('popup_visible');
+        var data = $(this).attr('data-text');
+        $('.popup__text_changing').text(data);
+
+        $('.popup').on('click', function(e) {
+            if ($(e.target).hasClass('popup_visible')) {
+                $('.popup').removeClass('popup_visible');
+            }
+        });
+    });
     // TOPLINE MENU SCROLL TO
     $('.topline').on('click', '.topline__link', function(e) {
         nextSection(e, $(this));

@@ -11,14 +11,15 @@ body
   font-size 20px
   rb300()
   
-body[data-hijacking="on"] 
-	overflow: hidden
 
 body::before
 	content: 'mobile'
 	display: none
 	  
 @media only screen and (min-width: 1050px) {
+  body[data-hijacking="on"] {
+	overflow: hidden
+  }
   body::before {
     /* never visible - this is used in jQuery to check the current MQ */
     content: 'desktop';
@@ -70,3 +71,101 @@ a
 		border-radius 5px
 	&_green
 		background-color #25921a
+  
+
+// POPUP
+
+.popup
+  position fixed
+  width 100%
+  height 100%
+  background-color rgba(0, 0, 0, 0.5)
+  z-index 2000
+  height 0
+  opacity 0
+  overflow hidden
+  transition opacity 0.3s
+  &_visible
+  	opacity 1
+  	height 100%
+  &__desc
+    color white
+    width 900px
+    height 440px
+    rb300()
+    position absolute
+    padding 75px 30px
+    background  black url(../images/popup-bg.jpg) no-repeat 0
+    top 50%
+    left 50%
+    margin-left -450px
+    margin-top -(@height / 2)
+    transition all 0.6s
+    transition-delay 1s
+  &__heading
+    rbc700()
+    font-size 26px
+    text-transform uppercase
+    margin-bottom 22px
+  &__text
+    margin-bottom 15px
+    width 300px
+    line-height 1.2
+    &_changing
+    	margin-bottom 25px
+  &__phone
+    margin-bottom 5px
+    font-size 24px  
+    &:first-child
+    	margin-top 25px  	 	
+  &__form
+  	width 500px
+  	height 530px
+  	background-color #e9e9e9
+  	position absolute
+  	right 0
+  	top -40px
+  	color #1f1f1f
+  	padding 40px 22px
+  	&-wrap
+  		position relative
+  		&:first-child
+  			content '+7'
+  			position absolute
+  			left 0
+  			top 0
+  	&-heading
+  		rbc700()
+  		font-size 35px	
+  		line-height 1.2
+  		text-align center
+  		width 340px
+  		margin 0 auto 50px
+  	label
+  		margin-bottom 4px
+  		margin-top 20px
+  		color #1f1f1f
+  		font-size 15px
+  		display block
+  		rbc700()
+  	&-field
+  		width 100%
+  		height 46px
+  		border 1px solid rgba(6, 7, 7, 0.2)
+  		text-align center	
+		color #363636
+		rbc400()
+	button
+		font-size 22px
+		rbc700()
+		text-transform uppercase
+		color #161616
+		background-color #fcff00
+		height 70px
+		line-height 69px
+		box-shadow inset 0 0 50.5px 0.5px rgba(6, 7, 7, 0.26)
+		position absolute
+		border none
+		width 100%
+		bottom 0
+		left 0	

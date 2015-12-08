@@ -32,7 +32,7 @@
                                 </nav>
                                 <div class="topline__contact">
                                     <span class="topline__num">8 (931) 909 54 49</span>
-                                    <a class="button button_blue topline__call-us" href="#">Свяжитесь с нами</a>
+                                    <a class="button button_blue topline__call-us" href="#" id="showpopup" data-text="Свяжись с нами и мы подскажем лучшее решение для Тебя.">Свяжитесь с нами</a>
                                 </div>
                                 <div class="cd-vertical-nav">
                                     <a href="#" class="cd-prev"></a>
@@ -44,7 +44,7 @@
                             <img class="header__img" src="images/templates.png"></img>
                             <div class="header__promo-right">
                                 <h2 class="header__heading">Привет, Друг! <br> Мы сделаем <br> лучший лендинг <br>для твоего бизнеса</h2>
-                                <a href="#" class="header__button button button_blue">Давай обсудим это</a>
+                                <a href="#" class="header__button button button_blue" id="showpopup" data-text="Свяжись с нами и мы сделаем лучшую упаковку для Тебя.">Давай обсудим это</a>
                                 <div class="header__more">узнай подробнее</div>
                             </div>
                         </section>
@@ -55,17 +55,19 @@
         <section class="cd-section">
             <div class="results">
                 <div class="results__in">
-                    <h2 class="results__heading">Как мы добиваемся лучших результатов?</h2>
-                    <p class="results__text">
-                        За каждым бизнесом, даже самым большим, всегда стоит человек. При создании лендинга мы рассказываем Твою личную историю, знакомим Твоих клиентов с Тобой, чтобы увеличить доверие к Твоему продукту. Это называется - <span>персонализацией сайта.</span>
-                    </p>
+                    <div class="results__left">
+                        <h2 class="results__heading">Как мы добиваемся лучших результатов?</h2>
+                        <p class="results__text">
+                            За каждым бизнесом, даже самым большим, всегда стоит человек. При создании лендинга мы рассказываем Твою личную историю, знакомим Твоих клиентов с Тобой, чтобы увеличить доверие к Твоему продукту. Это называется - <span>персонализацией сайта.</span>
+                        </p>
+                        <a href="#" class="results__button button button_green" id="showpopup" data-text="Свяжись с нами и мы сделаем персонализированный лендинг для Тебя.">Хочу персонализированный сайт</a>
+                    </div>
                     <div class="results__info">
                         <a href="http://www.antison.world" class="results__ref">antison.world</a>
                         <p class="results__info-text">
                             персонализированный лендинг для <span>Руслана Татунашвили</span>
                         </p>
                     </div>
-                    <a href="#" class="results__button button button_green">Хочу персонализированный сайт</a>
                     <div class="results__caption">
                         <h4 class="results__caption-heading">Руслан Татунашвили</h4>
                         <p class="results__caption-subheading">CallBackHunter</p>
@@ -95,7 +97,7 @@
                     <p class="management__text">
                         Мы знаем, что для разработки хорошего лендинга мало просто заполнить техническое задание. Нам очень важно услышать о Твоем продукте лично от Тебя. Поэтому сотрудничество с Тобой мы <strong>начинаем со знакомства</strong> в скайпе.
                     </p>
-                    <a class="management__button button button_green" href="#">Расскажи о своем бизнесе</a>
+                    <a class="management__button button button_green" href="#" id="showpopup" data-text="Свяжись с нами и расскажи о Твоем бизнесе.">Расскажи о своем бизнесе</a>
                     <a class="management__audio" href="#">Прослушай пример общения</a>
                 </div>
                 <div class="management__caption">
@@ -111,7 +113,7 @@
                     <p class="marketing__text">
                         При создании концепции сайта, мы знакомимся с твоей нишей. Изучаем рынок, выявляем боли твоего клиента и на основе собранных данных разрабатываем прототип.
                     </p>
-                    <a class="marketing__button button button_green" href="#">Связаться лично с Дмитрием Греем</a>
+                    <a class="marketing__button button button_green" id="showpopup" href="#" data-text="Получи личную консультацию от нашего главного маркетолога и со-основателя “D&M” Дмитрия Грея.">Связаться лично с Дмитрием Греем</a>
                     <a class="marketing__audio" href="#">Прослушай сообщение маркетолога</a>
                 </div>
                 <div class="marketing__caption">
@@ -132,7 +134,7 @@
                             Первое мнение о Тебе и Твоем продукте, клиент составляет сопрекоснувшись с упаковкой. В России 20% бизнесов упаковано плохо, остальные 80% - ужасно. Давай <strong>упакуем Твой бизнес</strong> отлично!
                         </p>
                     </div>
-                    <a class="design__button button button_green" href="#">Получи лучшую упаковку</a>
+                    <a class="design__button button button_green" id="showpopup" href="#" data-text="Свяжись с нами и мы сделаем лучшую упаковку для Тебя.">Получи лучшую упаковку</a>
                 </div>
                 <div class="design__caption">
                     <h4 class="design__caption-heading">Владислав Граф</h4>
@@ -149,7 +151,7 @@
                             Мы реализуем любой Твой замысел. У наших программистов есть опыт создания разных веб-проектов от обычных лендингов до сложнейших агрегаторов дисконтных систем. У Тебя есть сложный проект, у нас есть <strong>интересное решение!</strong>
                         </p>
                     </div>
-                    <a class="programming__button button button_green" href="#">Расскажи о своем проекте</a>
+                    <a class="programming__button button button_green" id="showpopup" data-text="Свяжись с нами и мы сделаем лучшую упаковку для Тебя.">Расскажи о своем проекте</a>
                 </div>
                 <div class="programming__caption">
                     <h4 class="programming__caption-heading">Кирилл Караман</h4>
@@ -175,7 +177,7 @@
                                 <img src="images/logo-maerss.jpg" alt="Логотип компании Maerss">
                             </div>
                             <h3 class="logo-showcase__action">Закажи лендинг сейчас и получи логотип в подарок</h3>
-                            <a href="#" class="logo-showcase__button button button_green">Получить логотип</a>
+                            <a href="#" class="logo-showcase__button button button_green" id="showpopup" data-text="Свяжись с нами и вместе с разработкой лендинга Ты получишь ре-стайлинг логотипа в подарок.">Получить логотип</a>
                         </div>
                     </div>
                 </div>
@@ -457,7 +459,7 @@
                         <div class="portfolio__discount">
                             <h2 class="portfolio__discount-50">30%</h2>
                             <p class="portfolio__discount-desc">Оплати лендинг сразу и получи скидку в 30%</p>
-                            <a href="#" class="portfolio__button">Получить скидку</a>
+                            <a href="#" class="portfolio__button" id="showpopup" data-text="Свяжись с нами и мы дадим Тебе скидку в 30% при оплате полной стоимости лендинга.">Получить скидку</a>
                         </div>
                     </div>
                 </div>
@@ -564,7 +566,7 @@
                         <div class="testimonials__direct">
                             <i class="testimonials__direct-icon"></i>
                             <h2 class="testimonials__direct-heading">Запиши видео-отзыв и мы<br> бесплатно настроим <span>Яндекс</span>.Директ</h2>
-                            <a class="testimonials__direct-button button" href="#">Получить бесплатную настройку</a>
+                            <a class="testimonials__direct-button button" href="#" id="showpopup" data-text="Свяжись с нами и мы дадим Тебе скидку в 30% при оплате полной стоимости лендинга.">Получить бесплатную настройку</a>
                         </div>
                     </div>
                 </div>
@@ -583,7 +585,7 @@
                         <div class="footer__contact">
                             <div class="footer__phone">8 (931) 909 54 49 (РФ)</div>
                             <div class="footer__phone">8 (707) 663 45 05 (KZ)</div>
-                            <p><a href="#">Заказать звонок</a> или<a href="#">напишите нам</a></p>
+                            <p><a href="#" id="showpopup" data-text="Свяжись с нами и мы подскажем лучшее решение для Тебя.">Закажи звонок</a> или<a href="mailto:mail@vgdg.ru">Напиши нам!</a></p>
                         </div>
                         <div id="vk_groups" style="float: right;"></div>
                     </div>
@@ -592,10 +594,36 @@
     </div>
     </section>
     </div>
+    <div class="popup">
+        <div class="popup__desc">
+            <h3 class="popup__heading">лучшее решение</h3>
+            <p class="popup__text">Каждый день специалисты из команады “Design & Marketing” помогают решить проблемы продающей упаковки бизнеса.</p>
+            <p class="popup__text popup__text_changing">Свяжись с нами и мы подскажем лучшее решение для Тебя.</p>
+            <p class="popup__phone">8 (931) 909 54 49 (РФ)</p>
+            <p class="popup__phone">8 (707) 663 45 05 (KZ)</p>
+            <div class="popup__form">
+                <div class="popup__form-heading">Оставь свои данные и мы свяжемся с Тобой:</div>
+                <form action="send.php" method="POST">
+                    <label for="name">Как тебя зовут?</label>
+                    <p class="popup__form-wrap">
+                        <input type="text" id="name" name="name" class="popup__form-field" placeholder="Николай Баксов">
+                    </p>
+                    <label for="phone">Оставь свой телефон</label>
+                    <p class="popup__form-wrap">
+                        <input type="text" id="phone" name="phone" class="popup__form-field" placeholder="+7 (123) 456 78 90">
+                    </p>
+                    <label for="mail">Оставь свою почту</label>
+                    <p class="popup__form-wrap">
+                        <input type="text" id="mail" name="mail" class="popup__form-field" placeholder="nikolai@kolya.ru">
+                    </p>
+                    <button type="submit">свяжитесь со мной</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="scripts/vendor.js"></script>
     <script src="scripts/main.js"></script>
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
-    
     <script type="text/javascript">
     VK.Widgets.Group("vk_groups", {
         mode: 0,
